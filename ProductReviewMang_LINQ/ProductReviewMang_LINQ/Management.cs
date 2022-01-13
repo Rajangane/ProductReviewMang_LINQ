@@ -71,6 +71,20 @@ namespace ProductReviewMang_LINQ
                 Console.WriteLine("ProductID:- " + list.ProductID + " " + "Review:- " + list.ProductReview);
             }
         }
+        /// <summary>
+        ///   UC6 : Skipping Top 5 Records from list
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void SkipTop5Records(List<ProductReview> listProductReview)
+        {
+
+            var recordedData = (from productReviews in listProductReview select productReviews).Skip(5).ToList(); ;
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID
+                     + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
+            }
+        }
 
     }
 }

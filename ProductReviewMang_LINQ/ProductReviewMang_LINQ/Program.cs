@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("************* Welcome To Product Review Management *****************");
 using ProductReviewMang_LINQ;
-Console.Write("Select Number:\n1)CreateProducts\n2)RetriveTop3\n3)RetriveAll\n4)CountReview\n5)ProductID_Review");
+Console.Write("Select Number:\n1)CreateProducts\n2)RetriveTop3\n3)RetriveAll\n4)CountReview\n5)ProductID_Review\n6)SkipRecord");
 int option = Convert.ToInt32(Console.ReadLine());
 Management management = new Management();
 List<ProductReview> productReviewList = new List<ProductReview>()
@@ -30,7 +30,6 @@ switch (option)
         break;
     case 2:
         //UC2
-       
         management.TopRecords(productReviewList);
         break;
     case 3:
@@ -45,9 +44,12 @@ switch (option)
         //UC5
         management.RetrieveProductID_Review(productReviewList);
         break;
-
-
     case 6:
+         //UC6
+        management.SkipTop5Records(productReviewList);
+        break;
+
+    case 7:
         Console.WriteLine("Invalid Option");
         break;
     

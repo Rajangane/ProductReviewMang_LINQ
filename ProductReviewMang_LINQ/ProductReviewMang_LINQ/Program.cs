@@ -1,11 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("************* Welcome To Product Review Management *****************");
 using ProductReviewMang_LINQ;
-Console.Write("Select Number:\n1)CreateProducts\n2)RetriveTop3");
+Console.Write("Select Number:\n1)CreateProducts\n2)RetriveTop3\n3)RetriveAll");
 int option = Convert.ToInt32(Console.ReadLine());
+Management management = new Management();
 List<ProductReview> productReviewList = new List<ProductReview>()
 {
-    new ProductReview(){ProducID=1,UserID=1,Rating=2,Review="Good",isLike=true},
+    new ProductReview(){ProducID=1,UserID=1,Rating=5,Review="Good",isLike=true},
     new ProductReview(){ProducID=2,UserID=1,Rating=4,Review="Good",isLike=true},
     new ProductReview(){ProducID=3,UserID=1,Rating=5,Review="Good",isLike=true},
     new ProductReview(){ProducID=4,UserID=1,Rating=6,Review="Good",isLike=false},
@@ -29,10 +30,14 @@ switch (option)
         break;
     case 2:
         //UC2
-        Management management = new Management();
+       
         management.TopRecords(productReviewList);
         break;
     case 3:
+        //UC3
+        management.SelectedRecords(productReviewList);
+        break;
+    case 4:
         Console.WriteLine("Invalid Option");
         break;
 }

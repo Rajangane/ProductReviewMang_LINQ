@@ -59,6 +59,18 @@ namespace ProductReviewMang_LINQ
 
             }
         }
+        /// <summary>
+        ///   UC5 : Retriving only ProductID and Review from the list 
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void RetrieveProductID_Review(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.Select(x => new { ProductID = x.ProducID, ProductReview = x.Review });
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.ProductID + " " + "Review:- " + list.ProductReview);
+            }
+        }
 
     }
 }

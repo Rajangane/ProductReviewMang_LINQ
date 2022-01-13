@@ -27,7 +27,7 @@ namespace ProductReviewMang_LINQ
             }
         }
         /// <summary>
-        ///   UC3
+        ///   UC3 : Retriving the Records where Rating is greater than 3 and Product ID is 1 or 4 or 9
         /// </summary>
         /// <param name="listProductReview"></param>
         public void SelectedRecords(List<ProductReview> listProductReview)
@@ -43,6 +43,21 @@ namespace ProductReviewMang_LINQ
                     + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
             }
 
+        }
+        /// <summary>
+        ///   UC4 : Retriving Count of each ProductID using groupBy Linq Operator
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void RetrieveCountOfRecords(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.GroupBy(y => y.ProducID).Select(x => new { ProductID = x.Key, Count = x.Count() });
+
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine(list.ProductID + "----------" + list.Count);
+
+            }
         }
 
     }
